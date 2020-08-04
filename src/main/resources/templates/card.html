@@ -9,8 +9,26 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </head>
 <body>
-	<h1>암기카드 목록</h1>
-	<ul th:each="card : ${cards}" th:text="${card.name}">
-	</ul>
+	<div class=".container-fluid text-center">
+		<h1 th:text=${card.name}></h1>
+		<br>
+		<a class="btn btn-primary" th:href="@{/word(id=${card.id})}" role="button">암기시작</a>
+		<table class="table">
+		  <thead>
+		    <tr>
+		      <th>번호</th>
+		      <th>단어</th>
+		      <th>뜻</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr th:each="word : ${card.words}">
+		      <td><a th:text="${word.id}"></a></td>
+		      <td><a th:text="${word.word}"></a></td>
+		      <td><a th:text="${word.meaning}"></a></td>
+		    </tr>
+		  </tbody>
+		</table>
+	</div>
 </body>
 </html>

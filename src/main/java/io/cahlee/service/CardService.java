@@ -14,8 +14,12 @@ public class CardService {
 	@Autowired
 	private CardRepository cardRepository;
 	
-	public List<Card> getAllCard() {
+	public List<Card> getCardList() {
 		return (List<Card>) cardRepository.findAll();
+	}
+
+	public Card getCardDetail(Long cardId) {
+		return cardRepository.findById(cardId).get();
 	}
 
 }

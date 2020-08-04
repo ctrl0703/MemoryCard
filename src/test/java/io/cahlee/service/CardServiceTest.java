@@ -18,7 +18,7 @@ public class CardServiceTest {
 	
 	@Test
 	public void getCard() {
-		List<Card> cards = cardService.getAllCard();
+		List<Card> cards = cardService.getCardList();
 		assertNotNull(cards);
 		
 		for(Card card : cards) {

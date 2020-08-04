@@ -10,20 +10,11 @@
 </head>
 <body>
 	<div class=".container-fluid text-center">
-		<h1>암기카드 목록</h1>
-		<br>
-		<table class="table">
-		  <thead>
-		    <tr>
-		      <th>암기카드 이름</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		    <tr th:each="card : ${cards}">
-		      <td><a th:href="@{/card(id=${card.id})}" th:text="${card.name}"></a></td>
-		    </tr>
-		  </tbody>
-		</table>
+		<!-- <div class="card" th:each="word: ${card.words}"> -->
+		<div class="card">
+		  <div class="card-body" th:text="${card.words[0].word}">
+		  </div>
+		</div>
 	</div>
 </body>
 </html>

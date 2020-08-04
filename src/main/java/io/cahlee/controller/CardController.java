@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +19,12 @@ public class CardController {
 	private CardService cardService;
 
 	@GetMapping("")
-	public List<Card> getAllCards() {
-		return cardService.getAllCard();
+	public List<Card> getCardList() {
+		return cardService.getCardList();
+	}
+	
+	@GetMapping("/{cardId}")
+	public Card getCardDetail(@PathVariable Long cardId) {
+		return cardService.getCardDetail(cardId);
 	}
 }
