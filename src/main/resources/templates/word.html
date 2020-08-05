@@ -10,10 +10,12 @@
 </head>
 <body>
 	<div class=".container-fluid">
-		<div class="memorycard-word col-6 mx-auto d-lg-none" th:each="word : ${card.words}">
+		<div class="memorycard-word col-6 mx-auto d-none" th:each="word : ${card.words}">
 			<span th:text="${wordStat.index + 1}"></span>/<span th:text="${#lists.size(card.words)}"></span>
 			<div class="card text-center my-3" style="height:200px">
-			  <div class="card-body" th:text="${word.word}">
+			  <div class="word-word card-body d-block" th:text="${word.word}" onclick="toggleWord(this)">
+			  </div>
+			  <div class="word-meaning card-body d-none" th:text="${word.meaning}" onclick="toggleWord(this)">
 			  </div>
 			</div>
 			<div class="d-flex justify-content-between">
@@ -25,13 +27,40 @@
 </body>
 <script type="text/javascript">
 $(document).ready(function() {
-	$(".memorycard-word:first").removeClass("d-lg-none");
+	$(".memorycard-word:first").addClass("d-block");
+	$(".memorycard-word:first").removeClass("d-none");
 })
 ;
 
 function nextWord(index, memorized) {
-	$(".memorycard-word:eq(" + index + ")").addClass("d-lg-none");
-	$(".memorycard-word:eq(" + (index + 1) + ")").removeClass("d-lg-none");
+	$(".memorycard-word:eq(" + index + ")").addClass("d-none");
+	$(".memorycard-word:eq(" + (index + 1) + ")").removeClass("d-none");
 }
+
+function toggleWord(parameter) {
+	alert(parameter);
+	/*
+	$(".memorycard-word.d-block .word-word").addClass("d-none");
+	$(".memorycard-word.d-block .word-word").removeClass("d-block");
+	$(".memorycard-word.d-block .word-meaning").addClass("d-block");
+	$(".memorycard-word.d-block .word-meaning").removeClass("d-none");*/
+}
+
+function hideWord() {
+	
+}
+
+function hideMeaning() {
+	
+}
+
+function showWord() {
+	
+}
+
+function showMeaning() {
+	
+}
+
 </script>
 </html>
