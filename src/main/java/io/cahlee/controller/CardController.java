@@ -1,5 +1,6 @@
 package io.cahlee.controller;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,10 @@ public class CardController {
 	@GetMapping("/{cardId}")
 	public Card getCardDetail(@PathVariable Long cardId) {
 		return cardService.getCardDetail(cardId);
+	}
+	
+	@GetMapping("/{cardId}/random")
+	public Card getRandomCardDetail(@PathVariable Long cardId) {
+		return cardService.getRandomCardDetail(cardId);
 	}
 }

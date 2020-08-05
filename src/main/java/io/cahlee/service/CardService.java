@@ -1,5 +1,6 @@
 package io.cahlee.service;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,4 +23,9 @@ public class CardService {
 		return cardRepository.findById(cardId).get();
 	}
 
+	public Card getRandomCardDetail(Long cardId) {
+		Card card = cardRepository.findById(cardId).get();
+		Collections.shuffle(card.getWords());
+		return card;
+	}
 }

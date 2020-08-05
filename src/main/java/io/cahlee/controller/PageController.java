@@ -28,7 +28,7 @@ public class PageController {
 	
 	@RequestMapping("/word")
 	public String word(Model model, @RequestParam Long id) {
-		model.addAttribute("card", cardService.getCardDetail(id));
+		model.addAttribute("card", cardService.getRandomCardDetail(id));
 		return "word";
 	}
 }
